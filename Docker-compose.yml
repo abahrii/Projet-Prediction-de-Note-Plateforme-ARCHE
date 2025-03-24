@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  data-generator:
+    container_name: data-generator
+    build: .
+    volumes:
+      - ./data-generator:/app
+    working_dir: /app
+    ports:
+      - "8501:8501"  
+    networks:
+      - spark-network
+
+networks:
+  spark-network:
+    driver: bridge
